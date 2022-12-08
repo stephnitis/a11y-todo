@@ -12,6 +12,12 @@ The project thus utilizes:
 - Usage of the `tabindex` attribute to manage keyboard focus
 - Aria labels necessary for elements to be read by assistive technology
 
+## Try it out
+
+- Use the tab key on your keyboard to see change focus on actionable items on the page
+- Shift tab will reverse to the previously focused item
+- Space bar to press buttons or check items on list
+
 ### References
 
 - [Web App Tutorial](https://www.youtube.com/watch?v=y51Cv4wnsPw)

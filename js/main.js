@@ -23,7 +23,7 @@ const refreshThePage = () => {
   clearListDisplay();
 
   //render the list
-  // renderlist();
+  renderlist();
 
   //clear the item entry field
   // clearItemEntryField();
@@ -68,4 +68,4 @@ const buildListItem = (item) => {
   div.appendChild(label);
   const container = document.getElementById('listItems');
   container.appendChild(div);
-}
+};
