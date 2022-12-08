@@ -23,9 +23,7 @@ const refreshThePage = () => {
   clearListDisplay();
   renderlist();
  clearItemEntryField();
-
-  //set the focus on the item entry field
-  // setFocusOnItemEntry();
+  setFocusOnItemEntry();
 
 }
 
@@ -80,4 +78,8 @@ const addClickListenerToCheckbox = (checkbox) => {
 
 const clearItemEntryField = () => {
   document.getElementById('newItem').value = '';
+};
+
+const setFocusOnItemEntry = () => {
+  document.getElementById('newItem').focus();
 };
