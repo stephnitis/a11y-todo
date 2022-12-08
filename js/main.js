@@ -1,11 +1,11 @@
-import ToDoList from "./todolist";
-import ToDoItem from "./todoitem";
+import ToDoList from './todolist';
+import ToDoItem from './todoitem';
 
 const toDoList = new ToDoList();
 
 //Launch app
-document.addEventListener("readystatechange", (event) => {
-  if(event.target.readyState === "complete"){
+document.addEventListener('readystatechange', (event) => {
+  if(event.target.readyState === 'complete'){
     initApp();
   }
 });
@@ -34,7 +34,7 @@ const refreshThePage = () => {
 }
 
 clearListDisplay = () => {
-  const parentElement = document.getElementById("listItems");
+  const parentElement = document.getElementById('listItems');
   deleteContents(parentElement);
 }
 
@@ -44,4 +44,15 @@ const deleteContents = (parentElement) => {
     parentElement.removeChild(child);
     child = parentElement.lastElementChild;
   }
+};
+
+const renderList = () => {
+  const list = toDoList.getList();
+  list.forEach(item => {
+    buildListItem(item);
+  });
+};
+
+const buildListItem = (item) => {
+  const div = document.createElement('div');
 }
