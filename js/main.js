@@ -17,6 +17,19 @@ function initApp() {
     processSubmission();
   });
 
+  const clearItems = document.getElementById('clearItems');
+  clearItems.addEventListener('click', (event) => {
+    const list = toDoList.getList();
+    if(list.length){
+      const confirmed = confirm('Are you sure you want to clear the list?');
+      if(confirmed){
+        toDoList.clearList();
+        // update persistent data
+        refreshThePage();
+      }
+    }
+  })
+
   //procedural: things to do when app loads
   //load list object
 
