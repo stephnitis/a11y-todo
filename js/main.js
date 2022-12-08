@@ -60,4 +60,12 @@ const buildListItem = (item) => {
   check.type = 'checkbox';
   check.id = item.getId();
   check.tabIndex = 0;
+  // add click listener to checkbox
+  const label = document.createElement('label');
+  label.htmlFor = item.getId();
+  label.textContent = item.getItem();
+  div.appendChild(check);
+  div.appendChild(label);
+  const container = document.getElementById('listItems');
+  container.appendChild(div);
 }
