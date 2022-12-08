@@ -15,18 +15,14 @@ const initApp = () => {
 
   //procedural: things to do when app loads
   //load list object
-  //refresh page
+
   refreshThePage();
 }
 
 const refreshThePage = () => {
   clearListDisplay();
-
-  //render the list
   renderlist();
-
-  //clear the item entry field
-  // clearItemEntryField();
+ clearItemEntryField();
 
   //set the focus on the item entry field
   // setFocusOnItemEntry();
@@ -80,4 +76,8 @@ const addClickListenerToCheckbox = (checkbox) => {
       refreshThePage();
     }, 1000);
   });
+};
+
+const clearItemEntryField = () => {
+  document.getElementById('newItem').value = '';
 };
