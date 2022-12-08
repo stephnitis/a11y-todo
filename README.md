@@ -14,7 +14,8 @@ The project thus utilizes:
 
 ## Try it out
 
-- Use the tab key on your keyboard to see change focus on actionable items on the page
+- Use your keyboard to see focus change to and from actionable items on the page
+- Tab key moves forward through the elements
 - Shift tab will reverse to the previously focused item
 - Space bar to press buttons or check items on list
 
