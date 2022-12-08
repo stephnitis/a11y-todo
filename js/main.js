@@ -10,7 +10,6 @@ document.addEventListener('readystatechange', (event) => {
 });
 
 function initApp() {
-  //Add listeners
   const itemEntryForm = document.getElementById('itemEntryForm');
   itemEntryForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -24,16 +23,24 @@ function initApp() {
       const confirmed = confirm('Are you sure you want to clear the list?');
       if(confirmed){
         toDoList.clearList();
-        // update persistent data
+        updatePersistentData(toDoList.getList());
         refreshThePage();
       }
     }
   })
 
-  //procedural: things to do when app loads
-  //load list object
-
+  loadListObject();
   refreshThePage();
+}
+
+function loadListObject() {
+  const storedList = localStorage.getItem('myToDoList');
+  if(typeof storedList !== 'string') return;
+  const parsedList = JSON.parse(storedList);
+  parsedList.forEach(itemObject => {
+    const newToDoItem = createNewItem(itemObject._id, itemObject._item);
+    toDoList.addItemToList(newToDoItem);
+  })
 }
 
 function refreshThePage() {
@@ -85,13 +92,17 @@ function addClickListenerToCheckbox (checkbox) {
   checkbox.addEventListener('click', (event) => {
     toDoList.removeItemFromList(checkbox.id);
 
-    // remove from persistent data
+    updatePersistentData(toDoList.getList());
 
     setTimeout(() => {
       refreshThePage();
     }, 1000);
   });
 };
+
+function updatePersistentData(listArray) {
+  localStorage.setItem('myToDoList', JSON.stringify(listArray));
+}
 
 function clearItemEntryField()  {
   document.getElementById('newItem').value = '';
@@ -109,7 +120,7 @@ function processSubmission()  {
   const toDoItem = createNewItem(nextItemId, newEntryText);
   toDoList.addItemToList(toDoItem);
 
-  // update persistent data
+  updatePersistentData(toDoList.getList());
 
   refreshThePage();
 };
