@@ -23,6 +23,25 @@ const refreshThePage = () => {
   clearListDisplay();
 
   //render the list
+  // renderlist();
+
   //clear the item entry field
+  // clearItemEntryField();
+
   //set the focus on the item entry field
+  // setFocusOnItemEntry();
+
+}
+
+clearListDisplay = () => {
+  const parentElement = document.getElementById("listItems");
+  deleteContents(parentElement);
+}
+
+const deleteContents = (parentElement) => {
+  let child = parentElement.lastElementChild;
+  while(child){
+    parentElement.removeChild(child);
+    child = parentElement.lastElementChild;
+  }
 }
