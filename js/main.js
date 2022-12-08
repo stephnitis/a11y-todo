@@ -12,6 +12,11 @@ document.addEventListener('readystatechange', (event) => {
 
 const initApp = () => {
   //Add listeners
+  const itemEntryForm = document.getElementById('itemEntryForm');
+  itemEntryForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    processSubmission();
+  });
 
   //procedural: things to do when app loads
   //load list object
@@ -83,3 +88,23 @@ const clearItemEntryField = () => {
 const setFocusOnItemEntry = () => {
   document.getElementById('newItem').focus();
 };
+
+const processSubmission = () => {
+  const newEntryText = getNewEntry();
+  if (!newEntryText.length) return;
+
+  const nextItemId = calcNextItemId();
+}
+
+const getNewEntry = () => {
+  return document.getElementById('newItem').value.trim();
+}
+
+const calcNextItemId = () => {
+  let nextItemId = 1;
+  const list = toDoList.getList();
+  if(list.length > 0){
+    nextItemId = list[list.length -1].getId() + 1;
+  }
+  return nextItemId;
+}
