@@ -3,7 +3,6 @@ import ToDoItem from './todoitem';
 
 const toDoList = new ToDoList();
 
-//Launch app
 document.addEventListener('readystatechange', (event) => {
   if(event.target.readyState === 'complete'){
     initApp();
@@ -26,7 +25,7 @@ const initApp = () => {
 
 const refreshThePage = () => {
   clearListDisplay();
-  renderlist();
+  renderList();
  clearItemEntryField();
   setFocusOnItemEntry();
 
@@ -98,6 +97,7 @@ const processSubmission = () => {
   toDoList.addItemToList(toDoItem);
 
   // update persistent data
+  refreshThePage();
 };
 
 const getNewEntry = () => {
@@ -114,7 +114,7 @@ const calcNextItemId = () => {
 }
 
 const createNewItem = (itemId, itemText) => {
-  const toDo = new toDoItem();
+  const toDo = new ToDoItem();
   toDo.setId(itemId);
   toDo.setItem(itemText);
   return toDo;
