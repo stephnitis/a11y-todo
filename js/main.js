@@ -60,7 +60,7 @@ const buildListItem = (item) => {
   check.type = 'checkbox';
   check.id = item.getId();
   check.tabIndex = 0;
-  // add click listener to checkbox
+  addClickListenerToCheckbox(check);
   const label = document.createElement('label');
   label.htmlFor = item.getId();
   label.textContent = item.getItem();
@@ -68,4 +68,16 @@ const buildListItem = (item) => {
   div.appendChild(label);
   const container = document.getElementById('listItems');
   container.appendChild(div);
+};
+
+const addClickListenerToCheckbox = (checkbox) => {
+  checkbox.addEventListener('click', (event) => {
+    toDoList.removeItemFromList(checkbox.id);
+
+    // remove from persistent data
+
+    setTimeout(() => {
+      refreshThePage();
+    }, 1000);
+  });
 };
