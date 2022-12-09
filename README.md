@@ -12,7 +12,7 @@ The project thus utilizes:
 - Usage of the `tabindex` attribute to manage keyboard focus
 - Aria labels necessary for elements to be read by assistive technology
 
-## Try it out
+## [Try it out](https://stephnitis.github.io/a11y-todo/)
 
 - Use your keyboard to see focus change to and from actionable items on the page
 - Tab key moves forward through the elements
